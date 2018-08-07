@@ -47,11 +47,11 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
     # Date actuelle, le mois prochain, dans 2 mois
     maintenant = datetime.now()
     moisPro = datetime.now() + timedelta(days=31)
-    moisProPo = moisPro + timedelta(days=31)
+    moisProPro = moisPro + timedelta(days=31)
 
     # Début et fin : le mois prochain et dans 2 mois
     debut = int(mktime(moisPro.timetuple()))
-    tend = int(mktime(moisProPro.timetuple()))
+    fin = int(mktime(moisProPro.timetuple()))
 
     # On initialise l'objet en supposant que geckodriver est dans le répertoire courant
     aurion = Aurion("monLogin", "monMDP", getcwd() + "/geckodriver")
