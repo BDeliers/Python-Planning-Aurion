@@ -37,9 +37,12 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
     # La classe
     from aurion import *
 
-    # Modules nécessaires pour l'exemple
+    # Modules de temps
     from datetime import datetime, timedelta
     from time import mktime, sleep
+
+    # Current directory
+    from os import getcwd
 
     # Date actuelle, le mois prochain, dans 2 mois
     maintenant = datetime.now()
