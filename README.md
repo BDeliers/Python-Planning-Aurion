@@ -1,12 +1,12 @@
 # Python-Planning-Aurion
 
-Classe Python pour télécharger le planning Aurion sous forme d'une chaîne JSON
-BDeliers, août 2018
-Sous License APACHE 2.0
+Classe Python pour télécharger le planning Aurion sous forme d'une chaîne JSON  
+BDeliers, août 2018  
+Sous License APACHE 2.0  
 
 ---
 
-Pour utiliser cette classe, il vous faudra installer Python 3 et Pip3 ainsi que Firefox
+Pour utiliser cette classe, il vous faudra installer Python 3 et Pip3 ainsi que Firefox  
 Sous linux :
 
 ```
