@@ -30,6 +30,7 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
 ```
     # La classe
     from aurion import *
+
     # Modules nécessaires pour l'exemple
     from datetime import datetime, timedelta
     from time import mktime, sleep
@@ -45,6 +46,7 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
 
     # On initialise l'objet en supposant que geckodriver est dans le répertoire courant
     aurion = Aurion("monLogin", "monMDP", getcwd() + "/geckodriver")
+    
     # On récupère les informations de login
     aurion.queryInformations()
 
