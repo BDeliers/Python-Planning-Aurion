@@ -4,7 +4,7 @@ Classe Python pour télécharger le planning Aurion sous forme d'une chaîne JSO
 BDeliers, août 2018
 Sous License APACHE 2.0
 
-===
+---
 
 Pour utiliser cette classe, il vous faudra installer Python 3 et Pip3 ainsi que Firefox
 Sous linux :
@@ -23,7 +23,7 @@ Ensuite, les modules selenium, lxml et requests sont indispensables
 
 Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/geckodriver/releases) et le désarchiver
 
-===
+---
 
 Exemple d'utilisation pour récupérer le planning du mois prochain :
 
