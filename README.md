@@ -1,7 +1,7 @@
 # Python-Planning-Aurion
 
 Classe Python pour télécharger le planning Aurion sous forme d'une chaîne JSON  
-BDeliers, août 2018  
+**BDeliers, août 2018**  
 Sous License APACHE 2.0  
 
 ---
