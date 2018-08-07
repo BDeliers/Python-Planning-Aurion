@@ -7,7 +7,7 @@ Sous License APACHE 2.0
 ---
 
 Pour fonctionner, ce module se connecte à Aurion dans Firefox (de manière invisible) puis récupère les infos indispensables.
-Par la suite, il envoie une requête HTTP à la bonne page pour récupérer les données de planning, qu'elle convertit ensuite
+Par la suite, il envoie une requête HTTP à une page d'Aurion pour récupérer les données de planning, que le script convertit ensuite
 en JSON.
 
 ---
