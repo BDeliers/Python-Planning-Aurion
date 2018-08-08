@@ -15,13 +15,13 @@ en JSON.
 Pour utiliser cette classe, il vous faudra installer Python 3 et Pip3 ainsi que Firefox  
 Sous linux :
 
-```
+```shell
     sudo apt-get install python3 python3-dev python3-pip
 ```
 
 Ensuite, les modules selenium, lxml et requests sont indispensables
 
-```
+```shell
     sudo pip3 install selenium
     sudo pip3 install lxml
     sudo pip3 install requests
@@ -33,7 +33,7 @@ Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/gec
 
 Exemple d'utilisation pour récupérer le planning du mois prochain :
 
-```
+```python
     # La classe
     from aurion import *
 
