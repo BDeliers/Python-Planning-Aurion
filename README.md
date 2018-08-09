@@ -1,6 +1,7 @@
 # Python-Planning-Aurion
 
 Classe Python pour télécharger le planning Aurion sous forme d'une chaîne JSON  
+Aurion est un "ERP de Scolarité" créé par Auriga. Il permet de gérer entr-autres le planning des étudiants dans des grandes écoles
 **BDeliers, août 2018**  
 Sous License APACHE 2.0  
 
