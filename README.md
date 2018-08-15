@@ -28,7 +28,7 @@ Ensuite, les modules selenium, lxml et requests sont indispensables
     sudo pip3 install requests
 ```
 
-Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/geckodriver/releases) et le désarchiver
+Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/geckodriver/releases) et le désarchiver dans le répertoire qui contient votre script python (ou bien l'ajouter au PATH)
 
 ---
 
