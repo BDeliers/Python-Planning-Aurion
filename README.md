@@ -55,7 +55,7 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
     fin = int(mktime(moisProPro.timetuple()))
 
     # On initialise l'objet en supposant que geckodriver est dans le répertoire courant
-    aurion = Aurion("monLogin", "monMDP", getcwd() + "/geckodriver")
+    aurion = Aurion("monLogin", "monMDP", getcwd() + "./geckodriver")
 
     # On récupère les informations de login
     aurion.queryInformations()
