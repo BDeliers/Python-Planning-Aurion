@@ -76,15 +76,15 @@ class Aurion:
         # Données
         data = [
           ("javax.faces.partial.ajax", "true"),
-          ("javax.faces.source", "form:j_idt124"),
-          ("javax.faces.partial.execute", "form:j_idt124"),
-          ("javax.faces.partial.render", "form:j_idt124"),
-          ("form:j_idt124", "form:j_idt124"),
-          ("form:j_idt124_start", start),
-          ("form:j_idt124_end", end),
+          ("javax.faces.source", self._formId),
+          ("javax.faces.partial.execute", self._formId),
+          ("javax.faces.partial.render", self._formId),
+          (self._formId, self._formId),
+          (self._formId + "_start", start),
+          (self._formId + "_end", end),
           ("form", "form"),
           ("form:largeurDivCenter", "1606"),
-          ("form:j_idt124_view", "week"),
+          ("form:j_idt133_view", "week"),
           ("form:offsetFuseauNavigateur", "-7200000"),
           ("form:onglets_activeIndex", "0"),
           ("form:onglets_scrollState", "0"),
@@ -142,7 +142,7 @@ class Aurion:
         # On le remplit avec les infos de l'utilisateur et on le valide
         driver.find_element_by_id("username").send_keys(self._username)
         driver.find_element_by_id("password").send_keys(self._password)
-        driver.find_element_by_id("j_idt32").click()
+        driver.find_element_by_xpath("//button[@type='submit']").click()
 
         # On attend le chargement de la page d'accueil d'Aurion
         while True:
@@ -166,7 +166,10 @@ class Aurion:
                 continue
 
         # On récupère la valeur du ViewState
-        self._viewState = driver.find_element_by_id("j_id1:javax.faces.ViewState:0").get_attribute("value")
+        self._viewState = driver.find_element_by_xpath("//input[@name='javax.faces.ViewState']").get_attribute("value")
+        
+        # On récupère l'id du form (form:j_idtxxx)
+        self._formId = driver.find_element_by_class_name("schedule").get_attribute("id")
 
         # On récupère le cookie
         cookies = driver.get_cookies()
