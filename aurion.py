@@ -147,14 +147,13 @@ class Aurion:
         # On attend le chargement de la page d'accueil d'Aurion
         while True:
             try:
-                driver.find_element_by_link_text("Mon Planning")
+                # On clicke sur l'onglet Planning
+                driver.find_element_by_link_text("Mon Planning").click()
                 break
             except:
                 sleep(1)
                 continue
 
-        # On clicke sur l'onglet Planning
-        driver.find_element_by_link_text("Mon Planning").click()
 
         # Quand le planning est chargé
         while True:
@@ -167,7 +166,7 @@ class Aurion:
 
         # On récupère la valeur du ViewState
         self._viewState = driver.find_element_by_xpath("//input[@name='javax.faces.ViewState']").get_attribute("value")
-        
+
         # On récupère l'id du form (form:j_idtxxx)
         self._formId = driver.find_element_by_class_name("schedule").get_attribute("id")
 
