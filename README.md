@@ -28,7 +28,7 @@ Ensuite, les modules selenium, lxml et requests sont indispensables
     sudo pip3 install requests
 ```
 
-Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/geckodriver/releases) et le désarchiver
+Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/geckodriver/releases) et le désarchiver dans le répertoire qui contient votre script python (ou bien l'ajouter au PATH)
 
 ---
 
@@ -55,7 +55,7 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
     fin = int(mktime(moisProPro.timetuple()))
 
     # On initialise l'objet en supposant que geckodriver est dans le répertoire courant
-    aurion = Aurion("monLogin", "monMDP", getcwd() + "/geckodriver")
+    aurion = Aurion("monLogin", "monMDP", getcwd() + "./geckodriver")
 
     # On récupère les informations de login
     aurion.queryInformations()
