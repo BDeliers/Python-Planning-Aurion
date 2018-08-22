@@ -108,6 +108,13 @@ class Aurion:
             for j in range(0, len(tmp)):
                 # Espaces en début/fin
                 tmp[j] = tmp[j].strip()
+            # Les noms de profs
+            # Remplacer les slashes par des virgules
+            tmp[4] = tmp[4].replace('/', ',')
+            # En minuscule
+            tmp[4] = tmp[4].lower()
+            # Première lettre en majuscule
+            tmp[4] = tmp[4].title()
             # Un bel évèneent formatté
             tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[2], "cours":tmp[3], "prof":tmp[4], "salle":tmp[5], "titre":tmp[6]}
             # On l'ajoute à la liste
