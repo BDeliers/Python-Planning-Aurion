@@ -13,11 +13,11 @@ en JSON.
 
 ---
 
-Pour utiliser cette classe, il vous faudra installer Python 3 et Pip3 ainsi que Firefox  
+Pour utiliser cette classe, il vous faudra installer Python 3 et Pip3 ainsi que Firefox ou Chrome/Chromium
 Sous linux :
 
 ```shell
-    sudo apt-get install python3 python3-dev python3-pip
+    sudo apt-get install python3 python3-dev python3-pip firefox google-chrome chromium-browser
 ```
 
 Ensuite, les modules selenium, lxml et requests sont indispensables
@@ -28,7 +28,11 @@ Ensuite, les modules selenium, lxml et requests sont indispensables
     sudo pip3 install requests
 ```
 
-Enfin, il vous faudra télécharger [geckodriver](https://github.com/mozilla/geckodriver/releases) et le désarchiver dans le répertoire qui contient votre script python (ou bien l'ajouter au PATH)
+Enfin, il vous faudra télécharger le driver qui correspond à votre navigateur et le désarchiver dans le répertoire qui contient votre script python (ou bien l'ajouter au PATH).
+Pour Firefox : [geckodriver](https://github.com/mozilla/geckodriver/releases)
+Pour Chrome/Chromium : [chromedriver]("http://chromedriver.chromium.org/")
+
+Pour une utilisation sur Raspberry Pi/Serveur, utilisez la version Chromium. Le driver est installable par ```sudo apt-get install chromium-driver```
 
 ---
 
@@ -55,7 +59,7 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
     fin = int(mktime(moisProPro.timetuple()))
 
     # On initialise l'objet en supposant que geckodriver est dans le répertoire courant
-    aurion = Aurion("monLogin", "monMDP", getcwd() + "./geckodriver")
+    aurion = Aurion("monLogin", "monMDP", "firefox", getcwd() + "/geckodriver")
 
     # On récupère les informations de login
     aurion.queryInformations()

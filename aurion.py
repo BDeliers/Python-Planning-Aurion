@@ -4,9 +4,8 @@
 # HTTP requests
 import requests
 
-# Selenium for Firefox control
+# Selenium for Firefox/Chrome control
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 
 # XML parser
@@ -25,26 +24,30 @@ class Aurion:
         SOUS LICENSE APACHE
 
         Classe qui récupère les données de planning entre deux timestamps sous forme de chaîne JSON
-        Pour instancier la classe : Aurion(username, password, geckodriver)
+        Pour instancier la classe : Aurion(username, password, driver)
 
         username = votre login
         password = votre mdp
-        geckodriver = le chemin du geckodriver
+        driver = le chemin du webdriver
 
         Pour descendre les informations nécessaires : queryInformations()
         Pour télécharger le planning : queryPlanningOnPeriod(timestamp départ, timestamp fin) et retourne les évènements
 
         Dépendances nécessaires : requests, lxml, selenium (installées par PIP)
-        Programmes nécessaires : Firefox
-        Autres : mettre geckodriver dans /usr/bin (ou dans le $PATH)
+        Programmes nécessaires : Firefox/Chrome/Chromium
 
     """
 
-    def __init__(self, username, password, geckodriver):
+    def __init__(self, username, password, browser, driver):
         self._url = "https://aurion-lille.yncrea.fr"
         self._username = username
         self._password = password
-        self._geckodriver = geckodriver
+        self._browser = browser
+        self._driver = driver
+
+        if ((self._browser != "firefox") and (self._browser != "chrome")):
+            print("Invalid browser")
+            exit()
 
     def queryPlanningOnPeriod(self, start, end):
         """
@@ -127,14 +130,28 @@ class Aurion:
             Récupère les informations vitales au programme : le cookie de session et le ViewState, ne retourne rien
         """
 
-        # Options firefox sans interface
-        options = Options()
-        options.add_argument("--headless")
+        # Propre à Firefox
+        if self._browser == "firefox":
+            from selenium.webdriver.firefox.options import Options
+            # Options Firefox sans interface
+            options = Options()
+            options.add_argument("--headless")
 
-        # On initialise le driver
-        driver = webdriver.Firefox(options=options, executable_path=self._geckodriver)
+            # On initialise le driver
+            driver = webdriver.Firefox(options=options, executable_path=self._driver)
 
-        # On se connecte au faux formulaire de login
+        # Propre à Chrome
+        if self._browser == "chrome":
+            from selenium.webdriver.chrome.options import Options
+            # Options Chrome sans interface
+            options = Options()
+            options.add_argument("-headless")
+            options.add_argument("-disable-gpu")
+
+            # On initialise le driver
+            driver = webdriver.Chrome(options=options, executable_path=self._driver)
+
+        # On se connecte au formulaire de login
         driver.get(self._url + "/faces/Login.xhtml")
 
         # On attend le chargement de la page de login d'Aurion
