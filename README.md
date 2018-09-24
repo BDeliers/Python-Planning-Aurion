@@ -28,9 +28,9 @@ Ensuite, les modules selenium, lxml et requests sont indispensables
     sudo pip3 install requests
 ```
 
-Enfin, il vous faudra télécharger le driver qui correspond à votre navigateur et le désarchiver dans le répertoire qui contient votre script python (ou bien l'ajouter au PATH).
-Pour Firefox : [geckodriver](https://github.com/mozilla/geckodriver/releases)
-Pour Chrome/Chromium : [chromedriver]("http://chromedriver.chromium.org/")
+Enfin, il vous faudra télécharger le driver qui correspond à votre navigateur et le désarchiver dans le répertoire qui contient votre script python (ou bien l'ajouter au PATH).  
+Pour Firefox : [geckodriver](https://github.com/mozilla/geckodriver/releases)  
+Pour Chrome/Chromium : [chromedriver]("http://chromedriver.chromium.org/")  
 
 Pour une utilisation sur Raspberry Pi/Serveur, utilisez la version Chromium. Le driver est installable par ```sudo apt-get install chromium-driver```.
 
