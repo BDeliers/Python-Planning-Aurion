@@ -32,7 +32,7 @@ Enfin, il vous faudra télécharger le driver qui correspond à votre navigateur
 Pour Firefox : [geckodriver](https://github.com/mozilla/geckodriver/releases)
 Pour Chrome/Chromium : [chromedriver]("http://chromedriver.chromium.org/")
 
-Pour une utilisation sur Raspberry Pi/Serveur, utilisez la version Chromium. Le driver est installable par ```sudo apt-get install chromium-driver```
+Pour une utilisation sur Raspberry Pi/Serveur, utilisez la version Chromium. Le driver est installable par ```sudo apt-get install chromium-driver```.
 
 ---
 
@@ -51,7 +51,7 @@ Exemple d'utilisation pour récupérer le planning du mois prochain :
 
     # Date actuelle, le mois prochain, dans 2 mois
     maintenant = datetime.now()
-    moisPro = datetime.now() + timedelta(days=31)
+    moisPro = maintenant + timedelta(days=31)
     moisProPro = moisPro + timedelta(days=31)
 
     # Début et fin : le mois prochain et dans 2 mois
