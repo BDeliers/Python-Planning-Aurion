@@ -119,7 +119,7 @@ class Aurion:
             # Première lettre en majuscule
             tmp[4] = tmp[4].title()
             # Un bel évèneent formatté
-            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[2], "cours":tmp[3], "prof":tmp[4], "salle":tmp[5], "titre":tmp[6]}
+            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[3], "cours":tmp[4], "prof":tmp[5], "salle":tmp[0], "titre":tmp[6]}
             # On l'ajoute à la liste
             eventsFormatted.append(tmp)
 
