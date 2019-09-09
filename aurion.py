@@ -39,7 +39,7 @@ class Aurion:
     """
 
     def __init__(self, username, password, browser, driver):
-        self._url = "https://aurion-lille.yncrea.fr"
+        self._url = "https://aurion.yncrea.fr"
         self._username = username
         self._password = password
         self._browser = browser
@@ -65,11 +65,11 @@ class Aurion:
 
         # Headers
         headers = {
-            "Host": "aurion-lille.yncrea.fr",
+            "Host": "aurion.yncrea.fr",
             "User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:58.0) Gecko/20100101 Firefox/58.0",
             "Accept": "application/xml, text/xml, */*; q=0.01",
             "Accept-Language": "fr-FR,fr;q=0.5",
-            "Referer": "https://aurion-lille.yncrea.fr/faces/Planning.xhtml",
+            "Referer": "https://aurion.yncrea.fr/faces/Planning.xhtml",
             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
             "Faces-Request": "partial/ajax",
             "X-Requested-With": "XMLHttpRequest",
@@ -107,16 +107,21 @@ class Aurion:
         # On formatte un peu tout ça
         for i in range(0, len(events)):
             tmp = events[i]["title"]
+<<<<<<< HEAD
             tmp = tmp.split(" -")
+=======
+            tmp = tmp.split("\n")
+>>>>>>> nouveauAurion
             for j in range(0, len(tmp)):
                 # Espaces en début/fin
                 tmp[j] = tmp[j].strip()
-            # Les noms de profs
+            # Les noms de profs - Arrêté en Sept 19
             # Remplacer les slashes par des virgules
-            tmp[5] = tmp[5].replace('/', ',')
+            #tmp[5] = tmp[5].replace('/', ',')
             # En minuscule
-            tmp[5] = tmp[5].lower()
+            #tmp[5] = tmp[5].lower()
             # Première lettre en majuscule
+<<<<<<< HEAD
             tmp[5] = tmp[5].title()
             # On ajoute "Cours de" dans l'intitulé du cours
             if "Cours" not in tmp[4]:
@@ -124,8 +129,12 @@ class Aurion:
             # On vire les virgules dans le titre, ça fait planter outlook
             tmp[4] = tmp[4].replace(',', ' -')
             tmp[5] = tmp[5].replace(',', '')
+=======
+            #tmp[5] = tmp[5].title()
+>>>>>>> nouveauAurion
             # Un bel évènement formaté
-            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[3], "cours":tmp[4], "prof":tmp[5], "salle":tmp[0], "titre":tmp[6]}
+            #tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[3], "cours":tmp[4], "prof":tmp[5], "salle":tmp[0], "titre":tmp[6]}
+            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "cours":tmp[1], "salle":tmp[2], "titre":tmp[3]}
             # On l'ajoute à la liste
             eventsFormatted.append(tmp)
 
@@ -177,18 +186,27 @@ class Aurion:
         # On attend le chargement de la page d'accueil d'Aurion
         while True:
             try:
-                # On clicke sur l'onglet Planning
-                driver.find_element_by_link_text("Mon Planning").click()
+                # On clicke sur l'onglet Scolarité
+                driver.find_element_by_xpath("//*[contains(text(), 'Scolarité')]").click()
                 break
             except:
                 sleep(1)
                 continue
 
+        # On attend le chargement de l'onglet scolarité' d'Aurion
+        while True:
+            try:
+                # On clicke sur l'onglet Planning
+                driver.find_element_by_xpath("//*[contains(text(), 'Mon planning')]").click()
+                break
+            except:
+                sleep(1)
+                continue
 
         # Quand le planning est chargé
         while True:
             try:
-                driver.find_element_by_xpath("//button[text()='Mois']")
+                driver.find_element_by_class_name("fc-month-button")
                 break
             except:
                 sleep(1)
