@@ -107,11 +107,7 @@ class Aurion:
         # On formatte un peu tout ça
         for i in range(0, len(events)):
             tmp = events[i]["title"]
-<<<<<<< HEAD
-            tmp = tmp.split(" -")
-=======
             tmp = tmp.split("\n")
->>>>>>> nouveauAurion
             for j in range(0, len(tmp)):
                 # Espaces en début/fin
                 tmp[j] = tmp[j].strip()
@@ -121,17 +117,7 @@ class Aurion:
             # En minuscule
             #tmp[5] = tmp[5].lower()
             # Première lettre en majuscule
-<<<<<<< HEAD
-            tmp[5] = tmp[5].title()
-            # On ajoute "Cours de" dans l'intitulé du cours
-            if "Cours" not in tmp[4]:
-                tmp[4] = "Cours de " + tmp[4]
-            # On vire les virgules dans le titre, ça fait planter outlook
-            tmp[4] = tmp[4].replace(',', ' -')
-            tmp[5] = tmp[5].replace(',', '')
-=======
             #tmp[5] = tmp[5].title()
->>>>>>> nouveauAurion
             # Un bel évènement formaté
             #tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[3], "cours":tmp[4], "prof":tmp[5], "salle":tmp[0], "titre":tmp[6]}
             tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "cours":tmp[1], "salle":tmp[2], "titre":tmp[3]}
