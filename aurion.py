@@ -111,16 +111,18 @@ class Aurion:
             for j in range(0, len(tmp)):
                 # Espaces en début/fin
                 tmp[j] = tmp[j].strip()
-            # Les noms de profs - Arrêté en Sept 19
-            # Remplacer les slashes par des virgules
-            #tmp[5] = tmp[5].replace('/', ',')
+            # Les noms de profs
+            # On enlève Monsieur/Madame
+            tmp[3] = tmp[3].replace("Monsieur ", '')
+            tmp[3] = tmp[3].replace("Madame ", '')
             # En minuscule
-            #tmp[5] = tmp[5].lower()
+            tmp[3] = tmp[3].lower()
             # Première lettre en majuscule
-            #tmp[5] = tmp[5].title()
+            tmp[3] = tmp[3].title()
+            # On enlève ISEN devant le nom de installées
+            tmp[0] = tmp[0].replace("ISEN ", '')
             # Un bel évènement formaté
-            #tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "type":tmp[3], "cours":tmp[4], "prof":tmp[5], "salle":tmp[0], "titre":tmp[6]}
-            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "cours":tmp[1], "salle":tmp[2], "titre":tmp[3]}
+            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "cours":tmp[1], "salle":tmp[0], "prof":tmp[3]}
             # On l'ajoute à la liste
             eventsFormatted.append(tmp)
 
