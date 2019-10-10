@@ -113,8 +113,8 @@ class Aurion:
                 tmp[j] = tmp[j].strip()
             # Les noms de profs
             # On enlève Monsieur/Madame
-            tmp[3] = tmp[3].replace("Monsieur ", '')
-            tmp[3] = tmp[3].replace("Madame ", '')
+            tmp[3] = tmp[3].replace("M ", '')
+            tmp[3] = tmp[3].replace("MME ", '')
             # En minuscule
             tmp[3] = tmp[3].lower()
             # Première lettre en majuscule
