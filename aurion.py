@@ -113,16 +113,26 @@ class Aurion:
                 tmp[j] = tmp[j].strip()
             # Les noms de profs
             # On enlève Monsieur/Madame
-            tmp[3] = tmp[3].replace("M ", '')
-            tmp[3] = tmp[3].replace("MME ", '')
+            tmp[3] = tmp[3].replace("Monsieur ", 'Mr ')
+            tmp[3] = tmp[3].replace("Madame ", 'Mme ')
             # En minuscule
             tmp[3] = tmp[3].lower()
             # Première lettre en majuscule
             tmp[3] = tmp[3].title()
-            # On enlève ISEN devant le nom de installées
-            tmp[0] = tmp[0].replace("ISEN ", '')
+            # Titre et salle de cours
+            # On coupe au tiret
+            tmp[0] = tmp[0].split('-')
+            # Si pas de numéro de salle après le tiret
+            if len(tmp[0]) == 1:
+                tmp[0].append("")
+            # On enlève "ISEN" de la salle
+            tmp[0][1] = tmp[0][1].replace("ISEN", '')
+            # Espaces en début/fin
+            for j in range(0, len(tmp[0])):
+                tmp[0][j] = tmp[0][j].strip()
+
             # Un bel évènement formaté
-            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "cours":tmp[1], "salle":tmp[0], "prof":tmp[3]}
+            tmp = {"debut":events[i]["start"], "fin":events[i]["end"], "cours":tmp[1], "salle":tmp[0][1], "titre": tmp[0][0], "prof":tmp[3]}
             # On l'ajoute à la liste
             eventsFormatted.append(tmp)
 
