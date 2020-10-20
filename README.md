@@ -5,6 +5,8 @@ Aurion est un "ERP de Scolarité" créé par Auriga. Il permet de gérer entr-au
 **BDeliers, août 2018**  
 Sous License APACHE 2.0  
 
+[MISE EN GARDE] Semble ne plus fonctionner depuis septembre 2020...
+
 ---
 
 Pour fonctionner, ce module se connecte à Aurion dans Firefox (de manière invisible) puis récupère les infos indispensables.
